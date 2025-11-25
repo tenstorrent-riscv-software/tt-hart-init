@@ -18,9 +18,12 @@
 .weak nmevec
 nmevec:
     // Trap all 16 exception vectors
+.option push
+.option norvc
     .rept 16
         nop
     .endr
+.option pop
     IDLE()
 
 set_nmevec:
