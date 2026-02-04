@@ -39,7 +39,7 @@ TARGETS := $(filter-out init include,$(TARGETS))
 # Collect all linker scripts in WORKDIR, only if is not the root directory '.'
 WORKDIR_LDS :=
 ifneq ($(WORKDIR),.)
-  WORKDIR_LDS := $(wildcard $(WORKDIR)/*.ld)
+  WORKDIR_LDS := $(filter-out $(WORKDIR)/generated.ld,$(wildcard $(WORKDIR)/*.ld))
 endif
 
 # --- Set Target Name ---
