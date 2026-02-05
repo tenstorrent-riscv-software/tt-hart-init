@@ -12,7 +12,10 @@ WORKDIR ?= .
 CFLAGS += -O0 -fno-PIC -fno-common -ffreestanding -ffunction-sections -fdata-sections
 CFLAGS += -march=rv64imafdcv_zifencei_zicsr -mabi=lp64d
 ASFLAGS = $(CFLAGS)
-LDFLAGS += -nostdlib -static -Wl,--gc-sections
+# Don't warn about LOAD segment with write and execute permissions. This does
+# not run with memory protections so there is no point padding the image to
+# put data and code in different segments.
+LDFLAGS += -nostdlib -static -Wl,--gc-sections -Wl,--no-warn-rwx-segments
 
 INCLUDE := include
 HEADERS := $(wildcard $(INCLUDE)/*.h $(WORKDIR)/*.h)
