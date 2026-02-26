@@ -137,6 +137,15 @@ custom behavior.
 
 EXAMPLES
 --------
+c2opensbi:
+    The `c2opensbi` directory provides an example demonstrating how to:
+    1. Implement `platform_entry` using C-style functions.
+    2. Jump to a next-stage payload, such as OpenSBI.
+    3. Control memory locations and sizes (OpenSBI, DTB, etc.) by defining
+       constants in `platform.h`.
+    4. Alternatively, override these constants dynamically at build time using
+       `CFLAGS`, e.g., `make c2opensbi CFLAGS="-DOPENSBI=0x80010000LU -DDTB=0x83205000LU"`.
+
 handoff:
     The `handoff` directory provides a minimalist, assembly-only platform
     implementation. Its purpose is to immediately hand off control to another
