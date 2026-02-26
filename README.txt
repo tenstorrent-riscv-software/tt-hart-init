@@ -137,6 +137,16 @@ custom behavior.
 
 EXAMPLES
 --------
+c-runtime:
+    The `c-runtime` directory provides an example demonstrating how to:
+    1. Set up a basic C environment (e.g., stack pointer).
+    2. Implement `platform_entry` using C-style functions.
+    3. Access global variables and string literals in relocatable code.
+    4. Use normal C functions (like an embedded `memcpy`).
+    5. Alternatively, override constants dynamically at build time using
+       `CFLAGS`, e.g., `make c-runtime CFLAGS="-DSTACK_TOP=0x70001000LU -DSTACK_SIZE=0x2000LU"`.
+    The compiled output will halt the HART after running the demonstration code.
+
 c2opensbi:
     The `c2opensbi` directory provides an example demonstrating how to:
     1. Implement `platform_entry` using C-style functions.
