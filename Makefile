@@ -11,6 +11,7 @@ WORKDIR ?= .
 #  addresses
 CFLAGS += -O0 -fno-PIC -fno-common -ffreestanding -ffunction-sections -fdata-sections
 CFLAGS += -march=rv64imafdcv_zifencei_zicsr -mabi=lp64d
+CFLAGS += $(EXTRA_CFLAGS)
 ASFLAGS = $(CFLAGS)
 # Don't warn about LOAD segment with write and execute permissions. This does
 # not run with memory protections so there is no point padding the image to

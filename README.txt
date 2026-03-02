@@ -158,8 +158,9 @@ c-runtime:
     3. Access global variables and string literals in relocatable code.
     4. Use normal C functions (like an embedded `memcpy`).
     5. Alternatively, override constants dynamically at build time using
-       `CFLAGS`, e.g., `make c-runtime CFLAGS="-DSTACK_TOP=0x70001000LU -DSTACK_SIZE=0x2000LU"`.
-    The compiled output will halt the HART after running the demonstration code.
+       `EXTRA_CFLAGS`, e.g., `make EXTRA_CFLAGS="-DSTACK_TOP=0x70001000LU \
+        -DSTACK_SIZE=0x2000LU" \ c-runtime`.
+    The compiled output will halt the HART after running the demonstration code.
 
 c2opensbi:
     The `c2opensbi` directory provides an example demonstrating how to:
@@ -168,7 +169,8 @@ c2opensbi:
     3. Control memory locations and sizes (OpenSBI, DTB, etc.) by defining
        constants in `platform.h`.
     4. Alternatively, override these constants dynamically at build time using
-       `CFLAGS`, e.g., `make c2opensbi CFLAGS="-DOPENSBI=0x80010000LU -DDTB=0x83205000LU"`.
+       `EXTRA_CFLAGS`, e.g., `make EXTRA_CFLAGS="-DOPENSBI=0x80010000LU \
+        -DDTB=0x83205000LU" c2opensbi`.
 
 handoff:
     The `handoff` directory provides a minimalist, assembly-only platform
@@ -179,7 +181,8 @@ handoff:
     2. Clean the general-purpose registers (not required but mimics fresh HW state).
     3. Jump to a generic payload address.
     4. Define the `PAYLOAD` address in `platform.h`, which can also be
-       overridden at build time, e.g., `make handoff CFLAGS="-DPAYLOAD=0x90000000"`.
+       overridden at build time, e.g., `make EXTRA_CFLAGS="-DPAYLOAD=0x90000000" \
+       handoff`.
 
 LICENSE
 -------
