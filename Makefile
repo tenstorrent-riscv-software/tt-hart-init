@@ -81,7 +81,7 @@ GENERATED_LD = $(WORKDIR)/generated.ld
 
 # Generate the preprocessed linker script
 $(GENERATED_LD): init/init.ld $(HEADERS)
-	$(CPP) $(CPPFLAGS) -P $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -E -P -x c $< -o $@
 
 # Build the ELF
 # $(GENERATED_LD) must come first; additional linker scripts from $(WORKDIR) follow
