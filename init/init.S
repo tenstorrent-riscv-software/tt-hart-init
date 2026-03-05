@@ -196,8 +196,15 @@ cpu_init:
     // Ascalon-specific init
     call    fmv_init
     call    vec_init
+    j       cpu_init_done
 
 skip_ascalon:
+#ifndef RELAXED_MARCHID
+    // Unknown CPU - hang (aggressive mode by default)
+    IDLE()
+#endif
+
+cpu_init_done:
     ret
 
 // Platform entry point. If defined in another source file, will get overwritten

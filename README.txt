@@ -103,6 +103,20 @@ file inside your platform directory. The default values are in
     #define INIT_BASE_ADDR            0x0
         Used to link the ELF file.
 
+CPU Detection:
+    By default, the code will hang if the CPU marchid is not recognized. This
+    ensures that the code only runs on validated hardware. For testing on
+    incomplete simulators or development platforms, you can relax the marchid
+    check (this will skip CPU-specific initialization):
+
+        make handoff CFLAGS="-DRELAXED_MARCHID"
+
+    Note: Generic initialization (GPR, NME vector setup) always runs regardless
+    of this flag. CPU-specific initialization (FPU, vector unit) is skipped
+    when the marchid doesn't match a known CPU and RELAXED_MARCHID is set. This
+    allows testing platform code on platforms that don't implement correct
+    marchid values.
+
 Linker and Relocatability:
     The code is designed to be fully relocatable. The `INIT_BASE` variable in
 the linker script (`init/init.ld`) is set to `0x0` by default. While the code
