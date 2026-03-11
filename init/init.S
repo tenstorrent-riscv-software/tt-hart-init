@@ -181,6 +181,9 @@ vec_init:
     ret
 
 // CPU-specific initialization dispatcher
+// Not a standard callable function
+// Makes nested calls without stack - cannot preserve ra
+// Jumps to cpu_init_done label in _start instead of returning
 // Reads marchid and calls appropriate init based on CPU type
 cpu_init:
     csrr    t0, marchid
@@ -196,7 +199,7 @@ cpu_init:
     // Ascalon-specific init
     call    fmv_init
     call    vec_init
-    j       cpu_init_done
+    j       cpu_init_ret
 
 skip_ascalon:
 #ifndef RELAXED_MARCHID
@@ -204,8 +207,8 @@ skip_ascalon:
     IDLE()
 #endif
 
-cpu_init_done:
-    ret
+cpu_init_ret:
+    j cpu_init_done
 
 // Platform entry point. If defined in another source file, will get overwritten
 .weak platform_entry
@@ -224,7 +227,8 @@ _start:
     call    set_nmevec
 #endif
 
-    call    cpu_init
+    j       cpu_init
+cpu_init_done:
 
     jal     x0, platform_entry
 
