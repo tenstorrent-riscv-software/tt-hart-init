@@ -8,9 +8,10 @@
 
 // CPU architecture IDs
 // Bit [63]: 1 = commercial core
-// Bits [62:56]: IP family (0=Ascalon)
+// Bits [62:56]: IP family (0=Ascalon, 1=Babylon)
 #define MARCHID_MASK                0xFF00000000000000
 #define MARCHID_ASCALON             0x8000000000000000
+#define MARCHID_BABYLON             0x8100000000000000
 
 // Setup early NME vector trap
 #define SETUP_NMEVEC

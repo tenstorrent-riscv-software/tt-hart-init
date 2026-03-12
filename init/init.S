@@ -202,6 +202,15 @@ cpu_init:
     j       cpu_init_ret
 
 skip_ascalon:
+
+    // Check for Babylon
+    li      t1, MARCHID_BABYLON
+    bne     t0, t1, skip_babylon
+
+    // No Babylon-specific init is needed yet
+    j       cpu_init_ret
+
+skip_babylon:
 #ifndef RELAXED_MARCHID
     // Unknown CPU - hang (aggressive mode by default)
     IDLE()
