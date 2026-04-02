@@ -13,6 +13,10 @@
 #define MARCHID_ASCALON             0x8000000000000000
 #define MARCHID_BABYLON             0x8100000000000000
 
+// Internal CSRs
+#define C_FECFG2                    0xBC2
+#define C_FECFG2_DIS_CSR_VXRM_OPT   (1 << 24)
+
 // Setup early NME vector trap
 #define SETUP_NMEVEC
 

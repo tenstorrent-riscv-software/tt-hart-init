@@ -199,6 +199,11 @@ cpu_init:
     // Ascalon-specific init
     call    fmv_init
     call    vec_init
+
+    // Disable optimization for Vxrm access
+    li      t0, C_FECFG2_DIS_CSR_VXRM_OPT
+    csrs    C_FECFG2, t0
+
     j       cpu_init_ret
 
 skip_ascalon:
