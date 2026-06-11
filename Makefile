@@ -9,7 +9,7 @@ WORKDIR ?= .
 # --- Compiler and Linker Flags ---
 #  Use -fno-PIC to avoid .got relocation table which will contain absoulte
 #  addresses
-CFLAGS += -O0 -fno-PIC -fno-common -ffreestanding -ffunction-sections -fdata-sections
+CFLAGS += -O0 -fno-PIC -fno-common -ffreestanding
 CFLAGS += -march=rv64imafdcv_zifencei_zicsr -mabi=lp64d
 CFLAGS += $(EXTRA_CFLAGS)
 ASFLAGS = $(CFLAGS)

@@ -26,10 +26,12 @@ SECTIONS
 
     . = ALIGN(16);
 
-    /* The rest of the text */
+    /* The rest of the text. Collect only the default .text section: all
+     * general code lands here once per-function splitting is disabled.
+     * Explicitly named .text.* sub-sections are intentionally NOT matched,
+     * so a platform linker script can place them at fixed addresses itself. */
     .text : {
-        *(.text*)    /* all other code */
-        *(.text.*)   /* any user-defined sub-sections */
+        *(.text)
         *(.rodata*)
     }
 
