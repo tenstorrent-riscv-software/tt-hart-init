@@ -1,4 +1,9 @@
-/* c2opensbi.ld - linker script for c2opensbi platform */
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * SPDX-FileCopyrightText:  2025-2026 Tenstorrent USA, Inc.
+ *
+ * c2opensbi.ld - linker script for c2opensbi platform
+ */
 
 SECTIONS
 {

@@ -1,4 +1,9 @@
-/* ascalon.ld - linker script for Ascalon CPU initialization */
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ * SPDX-FileCopyrightText:  2025-2026 Tenstorrent USA, Inc.
+ *
+ * ascalon.ld - linker script for Ascalon CPU initialization
+ */
 
 #include "platform_defaults.h"
 

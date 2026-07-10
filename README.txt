@@ -188,4 +188,4 @@ LICENSE
 -------
 This project is licensed under the Apache License, Version 2.0.
 
-Copyright 2025-2026 Tenstorrent AI ULC.
+Copyright 2025-2026 Tenstorrent USA, Inc.
