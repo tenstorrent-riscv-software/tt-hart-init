@@ -181,8 +181,17 @@ It demonstrates how to:
    overridden at build time, e.g., `make EXTRA_CFLAGS="-DPAYLOAD=0x90000000" \
    handoff`.
 
+## CONTRIBUTING
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to report issues and submit
+changes.
+
 ## LICENSE
 
 This project is licensed under the Apache License, Version 2.0.
+
+* [LICENSE](LICENSE) - the Apache 2.0 license text.
+* [LICENSE_understanding.txt](LICENSE_understanding.txt) - clarification of how
+  the license applies.
 
 Copyright 2025-2026 Tenstorrent USA, Inc.
